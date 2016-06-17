@@ -13,3 +13,174 @@
  *= require_tree .
  *= require_self
  */
+
+
+ body, html {
+  height: 100%;
+
+ }
+
+ body {
+  font-family: 'Montserrat', sans-serif;
+  position: relative;
+ }
+
+ h2 {
+  font-size: 3.5em;
+  text-align: center;
+ }
+
+ h3 {
+  font-size: 2em;
+  text-align: center;
+ }
+
+ figcaption {
+  text-align: center;
+ }
+
+ footer {
+  margin: 2%;
+  text-align: center;
+ }
+
+ .navbar {
+   height: 40px;
+ }
+ 
+ .bio {
+  font-size: 1.1em;
+  padding: 5%;
+ }
+
+ .brand-statement {
+  background-color: #fff;
+  background-color: rgba(255,255,255,0.45);
+  border-radius: 6px;
+  position: absolute;
+  top: 15%;
+  width: 50%;
+ }
+
+ .col-md-4 img {
+  display: block;
+  margin: 0 auto;
+  width: auto;
+  height: 175px;
+ }
+
+ .currently-learning {
+  opacity: 0.5;
+  padding: 10%;
+ }
+
+ .portfolio .lead {
+  text-align: center;
+ }
+
+ .project-description {
+  font-size: 1.1em;
+ }
+
+ .congressional-macbook .screen {
+  background-image: url("../img/congressional-macbook.png");
+ }
+
+ .mappetize-iphone .screen {
+  background-image: url("../img/mappetize-iphone.jpg");
+ }
+
+ .mappetize-macbook .screen {
+  background-image: url("../img/mappetize-macbook.jpg");
+ }
+
+ .nextbooks .screen {
+  background-image: url("../img/nextbooks-ipad4.png");
+ }
+
+
+ .overnighter .screen {
+  background-image: url("../img/overnighter-macbook.jpg");
+ }
+
+ .skills, .portfolio, .about-me {
+  padding-top: 60px;
+  margin-top: -60px;
+ }
+
+ .fa {
+  margin: 0 10px;
+ }
+
+ .fa:hover{
+  color: #4099ff ;
+ }
+
+ .jumbotron {
+  background-image: url("../img/martin-johnson-winner.png");
+  /*background-position: right;
+  width: 100%;
+  background-repeat: no-repeat;
+  float: right;*/
+  /*left: 20%;*/
+  background-size: cover;
+  height: 100%;
+ }
+
+ .mobile-header {
+  display: none;
+ }
+
+
+ .nav {
+  padding: 0;
+ }
+
+ .navbar-brand, .portfolio-nav > li {
+  margin: 5px 0;
+ }
+
+ .portfolio-pic {
+  height: 250px;
+  margin: 0 auto;
+  width: 90%;
+ }
+
+ .portfolio-pic:hover {
+  opacity: 0.85;
+ }
+
+ .screen {
+  background-size: cover;
+ }
+
+ .skills {
+  margin-bottom: 7%;
+ }
+
+ .skills .col-md-3 {
+  text-align: center;
+ }
+
+ /* LANGUAGE ICONS */
+ .skills i{
+  font-size: 10em;
+ }
+
+
+ @media all and (max-width: 600px) {
+    .jumbotron {
+        display: none;
+    }
+
+    .mobile-headshot {
+      margin: 25% auto 10% auto;
+      width: 90%;
+    }
+
+    .mobile-header {
+      display: block;
+      text-align: center;
+    }
+
+ }
