@@ -51,3 +51,7 @@ When ready to submit a pull request, merge master and resolve conflicts:
 Push up changes and submit pull request in GitHub:
 
     git push
+
+Tests:
+
+    bundle exec rspec

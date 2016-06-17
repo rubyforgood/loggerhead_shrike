@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sighted at:</strong>
+  <span class="sighted_at">
+    <%= @observation.sighted_at %>
+  </span>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <span class="location">
+    <%= @observation.location %>
+  </span>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <span class="latitude">
+    <%= @observation.latitude %>
+  </span>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <span class="longitude">
+    <%= @observation.longitude %>
+  </span>
+</p>
+
+<p>
+  <strong>Num bands:</strong>
+  <span class="num_bands">
+    <%= @observation.num_bands %>
+  </span>
+</p>
+
+<%= link_to 'Edit', edit_observation_path(@observation) %> |
+<%= link_to 'Back', observations_path %>
