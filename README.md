@@ -1,4 +1,4 @@
-https://codeship.com/projects/45a5ce80-16e5-0134-478c-3e8c5d75eee7/status?branch=master
+![](https://codeship.com/projects/45a5ce80-16e5-0134-478c-3e8c5d75eee7/status?branch=master)
 
 ## Logging the Loggerhead (Shrike)
 
