@@ -1,3 +1,5 @@
+![](https://codeship.com/projects/45a5ce80-16e5-0134-478c-3e8c5d75eee7/status?branch=master)
+
 ## Logging the Loggerhead (Shrike)
 
 ### Summary
@@ -18,9 +20,34 @@ There is only one [Shrike](https://en.wikipedia.org/wiki/Loggerhead_shrike) nati
 	* Admin
 		* Vet registering users before providing access
 * Import data from outside sources, typically `.xls` and `.gis`
-* Submit observation data for an invdividual bird including:
+* Submit observation data for an individual bird including:
 	* Photos
 	* Geospatial data, location descriptions, etc.
-	* Measurments, color, age, etc.
+	* Measurements, color, age, etc.
 * Map service integration for bird locations
 * Private discussion forum for registered users
+
+### Contributing
+
+Create a new feature branch:
+
+    git checkout -b <your branch name>
+
+Make your changes and stage changes:
+
+    git add -A
+
+Commit:
+
+    git commit -m "<your commit message>"
+
+When ready to submit a pull request, merge master and resolve conflicts:
+
+    git checkout master
+    git pull
+    git checkout -
+    git merge master
+
+Push up changes and submit pull request in GitHub:
+
+    git push
