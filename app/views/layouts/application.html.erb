@@ -32,6 +32,10 @@
             <li><a data-scroll href="#conservation">Conservation</a></li>
             <li><a data-scroll href="#outreach">Outreach</a></li>
             <li><a data-scroll href="#contact-us">Contact Us</a></li>
+
+            <% if current_user %>
+              <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+            <% end %>
           </ul>
         </div>
       </div>
