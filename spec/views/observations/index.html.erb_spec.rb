@@ -1,5 +1,5 @@
 require 'rails_helper'
-require 'pry'
+
 RSpec.describe "observations/index", type: :view do
   before(:each) do
     assign(:observations, [
