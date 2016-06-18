@@ -1,8 +1,5 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<% if @user %>
-   <% resource = @user %>
-<% end %>
 <%= render "devise/shared/user_form" %>
 
 <%= link_to "Back", :back %>
