@@ -2,28 +2,36 @@
 
 RSpec.describe Users::InvitationsController, type: :controller do
   describe "GET #new" do
+
     context "improper authorization" do
-
-      let (:admin_params) {
-        {
-          email:                 "admin@gmail.com",
-          name:                  "Mr Admin",
-          role:                  "admin",
-          password:              "password",
-          password_confirmation: "password"
-        }
-      }
-
-      let(:admin) {
-        User.create!(admin_params)
-      }
-
-      # before {controller.stub(:current_user) { admin }}
-
       it "redirects to login page" do
-        get :new 
-        #expect(response).to redirect_to("index")
+        @request.env["devise.mapping"] = Devise.mappings[:user]
+        get :new
+        expect(response).to redirect_to(new_user_session_path)
       end
+    end
+  end
+
+  context "proper authorization" do
+    let (:admin_params) {
+      {
+        email:                 "admin@gmail.com",
+        name:                  "Mr Admin",
+        role:                  "admin",
+        password:              "password",
+        password_confirmation: "password"
+      }
+    }
+
+    let(:admin) {
+      User.create!(admin_params)
+    }
+
+    it "loads invitation form" do
+      @request.env["devise.mapping"] = Devise.mappings[:user]
+      sign_in admin
+      get :new
+      expect(response.status).to eq(200)
     end
   end
 end

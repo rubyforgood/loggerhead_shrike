@@ -4,7 +4,7 @@ class Users::InvitationsController < Devise::InvitationsController
 
   private
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:invite).concat [:role]
+    devise_parameter_sanitizer.permit(:invite, keys: [:role])
   end
 
   def check_authorization
