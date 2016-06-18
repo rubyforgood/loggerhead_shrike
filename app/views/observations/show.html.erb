@@ -35,5 +35,16 @@
   </span>
 </p>
 
+<p>
+  <strong>Photo:</strong>
+  <span class="photo">
+    <% if @observation.photo && @observation.photo.url %>
+      <%= image_tag @observation.photo.url(:square) %>
+    <% else %>
+      No Photo
+    <% end %>
+  </span>
+</p>
+
 <%= link_to 'Edit', edit_observation_path(@observation) %> |
 <%= link_to 'Back', observations_path %>

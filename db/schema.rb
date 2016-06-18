@@ -11,19 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160618150320) do
+ActiveRecord::Schema.define(version: 20160618215216) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "images", force: :cascade do |t|
+    t.text     "image_data"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "user_id"
+    t.integer  "observation_id"
+    t.index ["observation_id"], name: "index_images_on_observation_id", using: :btree
+  end
+
   create_table "observations", force: :cascade do |t|
     t.datetime "sighted_at"
     t.string   "location"
-    t.decimal  "latitude",   precision: 10, scale: 6
+    t.decimal  "latitude",           precision: 10, scale: 6
     t.decimal  "longitude"
     t.integer  "num_bands"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "users", force: :cascade do |t|
@@ -57,4 +70,5 @@ ActiveRecord::Schema.define(version: 20160618150320) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "images", "observations"
 end

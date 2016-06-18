@@ -1,4 +1,4 @@
-<%= form_for(observation) do |f| %>
+<%= form_for(observation, multipart: true) do |f| %>
   <% if observation.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(observation.errors.count, "error") %> prohibited this observation from being saved:</h2>
@@ -34,6 +34,11 @@
   <div class="field">
     <%= f.label :num_bands %>
     <%= f.number_field :num_bands %>
+  </div>
+
+  <div class="field">
+    <%= f.label :photo %>
+    <%= f.file_field :photo %>
   </div>
 
   <div class="actions">
