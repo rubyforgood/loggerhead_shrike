@@ -3,4 +3,17 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  ROLES = %i[admin researcher scientist]
+
+  def is_admin?
+    self.role == "admin"
+  end
+
+  def is_researcher?
+    self.role == "researcher"
+  end
+
+  def is_scientist?
+    self.role == "scientist"
+  end
 end
