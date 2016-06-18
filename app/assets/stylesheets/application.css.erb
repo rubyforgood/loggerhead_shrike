@@ -14,26 +14,69 @@
  *= require_self
  */
 
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h2 {
+  text-align: center;
+}
+
 .about_image {
-  height: 300px;
-  background-image: url(<%= asset_path("shrike_post.jpg") %>);
+  height: 350px;
+  width: 350px;
+  background-image: url(<%= asset_path("shrike_on_a_stick.jpg") %>);
+  border-radius: 50%;
+  border: none;
 }
 
 .meet_image {
-  height: 300px;
+  height: 500px;
+  width: 500px;
+  border-radius: 50%;
   background-image: url(<%= asset_path("shrike_flying.jpg") %>);
+  background-position: 50% 20%;
 }
 
 .habitat_image {
-  background-image: url("");
+  height: 400px;
+  width: 400px;
+  border-radius: 50%;
+  background-image: url(<%= asset_path("alvar_habitat.jpg") %>);
 }
 
 .conservation_image {
-  background-image: url("");
+  height: 400px;
+  width: 400px;
+  border-radius: 50%;
+  background-position: 0% 25%;
+  background-image: url(<%= asset_path("loggerhead_shrike_grumpy.jpg") %>);
 }
 
 .outreach_image {
-  background-image: url(<%= asset_path("shrike_post.jpg") %>);
+  height: 350px;
+  width: 350px;
+  border-radius: 50%;
+  background-image: url(<%= asset_path("bird_watchers.jpg") %>);
+}
+
+.jumbotron {
+  background-image: url(<%= asset_path("landscape.jpg") %>);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 300px;
+}
+
+.jumbotron h1 {
+  color: #efefef;
+  font-family: times;
+  font-size: 38px;
+  margin-top: 2em;
+}
+
+.notice, .alert {
+  display: inline;
 }
 
 #observations {
