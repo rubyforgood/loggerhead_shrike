@@ -31,9 +31,19 @@
             <td class="latitude"><%= observation.latitude %></td>
             <td class="longitude"><%= observation.longitude %></td>
             <td class="num_bands"><%= observation.num_bands %></td>
-            <td><%= link_to 'Show', observation %></td>
-            ß<td><%= link_to 'Edit', edit_observation_path(observation) %></td>
-            <td><%= link_to 'Destroy', observation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  
+            <td>
+              <button type="button" class="btn btn-primary"><%= link_to 'Show', observation %></button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-warning"><%= link_to 'Edit', edit_observation_path(observation) %></button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-danger"><%= link_to 'Destroy', observation, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+            </td>
+            
+            
+
           </tr>
         <% end %>
       </tbody>
