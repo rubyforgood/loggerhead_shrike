@@ -8,5 +8,6 @@ class Users::InvitationsController < Devise::InvitationsController
 
   private def configure_permitted_parameters
     devise_parameter_sanitizer.for(:invite).concat [:role]
+    devise_parameter_sanitizer.for(:accept_invitation).concat [:phone, :name]
   end
 end
