@@ -1,11 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Observations</h1>
+<h1>Nesting Data</h1>
 
-<table>
+<table class="table" text-align="center">
   <thead>
     <tr>
-      <th>Sighted at</th>
+      <th>Sighted at Date</th>
+      <th>Sighted at Time (UTC)</th>
       <th>Location</th>
       <th>Latitude</th>
       <th>Longitude</th>
@@ -17,14 +18,15 @@
   <tbody>
     <% @observations.each do |observation| %>
       <tr>
-        <td class="sighted_at"><%= observation.sighted_at %></td>
+        <td class="sighted_at_date"><%= observation.sighted_at.to_date %></td>
+        <td class="sighted_at_time"><%= observation.sighted_at.strftime("%H:%M") %></td>
         <td class="location"><%= observation.location %></td>
         <td class="latitude"><%= observation.latitude %></td>
         <td class="longitude"><%= observation.longitude %></td>
         <td class="num_bands"><%= observation.num_bands %></td>
-        <td><%= link_to 'Show', observation %></td>
-        <td><%= link_to 'Edit', edit_observation_path(observation) %></td>
-        <td><%= link_to 'Destroy', observation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <!--<td><%#= link_to 'Show', observation %></td>-->
+        <!--<td><%#= link_to 'Edit', edit_observation_path(observation) %></td>-->
+        <!--<td><%#= link_to 'Destroy', observation, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
       </tr>
     <% end %>
   </tbody>

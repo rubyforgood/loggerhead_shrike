@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :check_admin
+  before_action :check_admin, only: [:index]
 
   def index
     @users = User.all
@@ -17,6 +17,6 @@ class UsersController < ApplicationController
   private
 
   def check_admin
-    true
+    current_user.is_admin?
   end
 end
