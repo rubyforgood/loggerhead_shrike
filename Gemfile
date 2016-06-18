@@ -32,6 +32,16 @@ gem 'jbuilder', '~> 2.0'
 gem 'rollbar'
 gem 'pry'
 
+
+#Shrine
+gem 'shrine', '~> 2.0'
+gem 'image_processing'
+gem 'mini_magick'
+gem 'fastimage'              # for store_dimensions plugin
+gem 'aws-sdk', '~> 2.1'      # for S3 storage
+gem 'roda'                   # for direct_upload plugin
+gem 'sucker_punch', '~> 2.0' # for backgrounding plugin
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -40,6 +50,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 3.5.0.beta4'
   gem 'rails-controller-testing', '~> 0.1.1'
+  gem 'dotenv-rails'
 end
 
 group :development do

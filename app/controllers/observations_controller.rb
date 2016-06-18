@@ -40,6 +40,7 @@ class ObservationsController < ApplicationController
   # PATCH/PUT /observations/1
   # PATCH/PUT /observations/1.json
   def update
+    byebug
     respond_to do |format|
       if @observation.update(observation_params)
         format.html { redirect_to @observation, notice: 'Observation was successfully updated.' }
@@ -69,6 +70,6 @@ class ObservationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def observation_params
-      params.require(:observation).permit(:sighted_at, :location, :latitude, :longitude, :num_bands)
+      params.require(:observation).permit(:sighted_at, :location, :latitude, :longitude, :num_bands, images:[])
     end
 end

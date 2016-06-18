@@ -4,9 +4,9 @@
       <h2><%= pluralize(observation.errors.count, "error") %> prohibited this observation from being saved:</h2>
 
       <ul>
-      <% observation.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% observation.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
@@ -36,7 +36,20 @@
     <%= f.number_field :num_bands %>
   </div>
 
-  <div class="actions">
+  <div class="field">
+    <label>Select photos</label>
+    <%= f.file_field :images, multiple: true %>
+  </div>
+  
     <%= f.submit %>
   </div>
 <% end %>
+
+<%# <%= form_for observation do |f| %1> %>
+  <%# <ul class="list-unstyled"> %>
+  <%#   <% observation.images.each_with_index do |image, idx| %1> %>
+  <%#     <%= render "image", image: image, idx: idx %1> %>
+  <%#   <% end %1> %>
+  <%# </ul> %>
+  <%# <%= submit_tag "Save", class: "btn btn-primary" %1> %>
+<%# <% end %1> %>
