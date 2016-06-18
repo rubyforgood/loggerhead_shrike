@@ -30,6 +30,10 @@
     <%= f.text_field :phone %>
   </div>
 
+  <div class="field">
+    <%= f.collection_select(:role, User::ROLES.reject{ |r| r == "admin"},  :to_s, lambda{|i| i.humanize}) %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
