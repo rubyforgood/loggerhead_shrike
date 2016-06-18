@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Observations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Sighted at</th>
+      <th>Location</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Num bands</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @observations.each do |observation| %>
+      <tr>
+        <td class="sighted_at"><%= observation.sighted_at %></td>
+        <td class="location"><%= observation.location %></td>
+        <td class="latitude"><%= observation.latitude %></td>
+        <td class="longitude"><%= observation.longitude %></td>
+        <td class="num_bands"><%= observation.num_bands %></td>
+        <td><%= link_to 'Show', observation %></td>
+        <td><%= link_to 'Edit', edit_observation_path(observation) %></td>
+        <td><%= link_to 'Destroy', observation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Observation', new_observation_path %>
