@@ -19,35 +19,27 @@
     <p class="alert"><%= alert %></p>
 
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <a data-scroll class="navbar-brand" href="#jumbotron">SCBI</a>
-        </div>
+      <div class="navbar-header">
+        <%= link_to "SCBI", root_path(anchor: "jumbotron"), class: "navbar-brand" %>
+      </div>
 
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav portfolio-nav">
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav portfolio-nav">
+          <li><%= link_to "About", root_path(anchor: "about") %></li>
+          <li><%= link_to "Meet the Birds", root_path(anchor: "meet") %></li>
+          <li><%= link_to "Habitat", root_path(anchor: "habitat") %></li>
+          <li><%= link_to "Conservation", root_path(anchor: "conservation") %></li>
+          <li><%= link_to "Outreach", root_path(anchor: "outreach") %></li>
+          <li><%= link_to "Contact Us", root_path(anchor: "contact-us") %></li>
 
-            <li><%= link_to "About", root_path(anchor: "about") %></li>
-            <li><%= link_to "Meet the Birds", root_path(anchor: "meet") %></li>
-            <li><%= link_to "Habitat", root_path(anchor: "habitat") %></li>
-            <li><%= link_to "Nesting Data", observations_path %></li>
-            <li><%= link_to "Conservation", root_path(anchor: "conservation") %></li>
-            <li><%= link_to "Outreach", root_path(anchor: "outreach") %></li>
-            <li><%= link_to "Contact Us", root_path(anchor: "contact-us") %></li>
-
-            <% if current_user %>
-              <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-            <% else %>
-              <li><%= link_to "Sign In", new_user_session_path %></li>
-            <% end %>
-            </ul>
-
-        </div>
+          <% if current_user %>
+            <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to "Sign In", new_user_session_path %></li>
+          <% end %>
+          </ul>
       </div>
     </nav>
-
-  </br>
-  </br>
 
     <%= yield %>
 
