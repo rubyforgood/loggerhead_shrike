@@ -1,18 +1,37 @@
 <h2>Admin Panel</h2>
 
-<table>
-  <% @users.each do |user| %>
-    <tr>
-      <%= link_to "#{user.name}", user_path(user) %>
-    </tr>
-    <tr>
-      <%= user.email %>
-    </tr>
-    <tr>
-      user role
-    </tr>
-    <tr>
-      <%= link_to "Edit user", edit_user_path(user) %>
-    </tr>
-  <% end %>
-</table>
+<div>
+  add pending users here
+</div>
+
+<div>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Role</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td>
+            <%= link_to "#{user.name}", user_path(user) %>
+          </td>
+          <td>
+            <%= user.email %>
+          </td>
+          <td>
+            <%= user.role %>
+          </td>
+          <td>
+            <%= link_to "Edit user", edit_user_path(user) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>
