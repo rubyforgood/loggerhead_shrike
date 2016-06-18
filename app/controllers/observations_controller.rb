@@ -5,6 +5,7 @@ class ObservationsController < ApplicationController
   # GET /observations.json
   def index
     @observations = Observation.all
+    gmaps_hash
   end
 
   # GET /observations/1
@@ -59,6 +60,15 @@ class ObservationsController < ApplicationController
       format.html { redirect_to observations_url, notice: 'Observation was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def gmaps_hash
+    @hash = Gmaps4rails.build_markers(@observation) do |observation, marker|
+        marker.lat observation.latitude
+        marker.lng observation.longitude
+        # what label do I use?
+        # marker.infowindow observation.name
+    end   
   end
 
   private

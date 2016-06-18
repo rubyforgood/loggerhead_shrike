@@ -31,6 +31,8 @@ gem 'jbuilder', '~> 2.0'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'rollbar'
 
+gem 'gmaps4rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

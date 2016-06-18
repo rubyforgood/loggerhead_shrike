@@ -15,6 +15,7 @@
   </thead>
 
   <tbody>
+    <%= render partial: 'map' %>
     <% @observations.each do |observation| %>
       <tr>
         <td class="sighted_at"><%= observation.sighted_at %></td>
