@@ -63,7 +63,7 @@ class ObservationsController < ApplicationController
   end
 
   def gmaps_hash
-    @hash = Gmaps4rails.build_markers(@observation) do |observation, marker|
+    @hash = Gmaps4rails.build_markers(@observations) do |observation, marker|
         marker.lat observation.latitude
         marker.lng observation.longitude
         # what label do I use?
