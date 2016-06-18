@@ -52,7 +52,7 @@ RSpec.describe ObservationsController, type: :controller do
     it "assigns all observations as @observations" do
       observation = Observation.create! valid_attributes
           get :index, params: {}, session: valid_session
-          expect(assigns(:observations)).to eq([observation])
+          expect(assigns(:observations)).to eq(Observation.all)
     end
   end
 
