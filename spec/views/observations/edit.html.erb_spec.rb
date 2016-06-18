@@ -24,4 +24,10 @@ RSpec.describe "observations/edit", type: :view do
       assert_select "input#observation_num_bands[name=?]", "observation[num_bands]"
     end
   end
+
+
+  it 'creates a div due to google maps' do
+    render
+    assert_select "div.gm-style'"
+  end
 end
