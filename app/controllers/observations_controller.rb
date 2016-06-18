@@ -11,6 +11,9 @@ class ObservationsController < ApplicationController
   # GET /observations/1
   # GET /observations/1.json
   def show
+    @observation = Observation.find(params[:id])
+    @observations = @observation
+    gmaps_hash
   end
 
   # GET /observations/new
@@ -20,6 +23,9 @@ class ObservationsController < ApplicationController
 
   # GET /observations/1/edit
   def edit
+    @observation = Observation.find(params[:id])
+    @observations = @observation
+    gmaps_hash
   end
 
   # POST /observations
