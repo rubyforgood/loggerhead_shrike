@@ -3,7 +3,7 @@
 <%= form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => {:method => :post} do |f| %>
   <%= devise_error_messages! %>
 
-<%= f.collection_select(:role, User::ROLES, :to_s, lambda{|i| i.to_s.humanize}) %>
+<%= f.collection_select(:role, User::ROLES,  :to_s, lambda{|i| i.humanize}) %>
 
 <% resource.class.invite_key_fields.each do |field| -%>
   <p><%= f.label field %><br />

@@ -13,7 +13,7 @@ RSpec.describe User, type: :model do
     expect(user).to be_valid
   end
 
-  it "can be valid" do
+  it "can be an admin" do
     user = User.new(
       email:                 "spacejame@gmail.com",
       name:                  "Michael Jordan",
