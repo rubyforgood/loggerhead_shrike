@@ -6,7 +6,7 @@ class Users::InvitationsController < Devise::InvitationsController
     super
   end
 
-  def configure_permitted_parameters
+  private def configure_permitted_parameters
     devise_parameter_sanitizer.for(:invite).concat [:role]
   end
 end
