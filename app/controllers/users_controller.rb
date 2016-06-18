@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
-  load_and_authorize_resource 
+  load_and_authorize_resource
 
 
   def index
-    @users = User.all
+    # @users = User.all
+    @users = User.where("role" => "guest")
   end
 
   def show

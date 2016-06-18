@@ -1,8 +1,6 @@
 <h2>Admin Panel</h2>
 
-<div>
-  add pending users here
-</div>
+
 
 <div>
   <table class='table'>
@@ -11,6 +9,12 @@
         <th>Name</th>
         <th>Email</th>
         <th>Role</th>
+        <th>
+          placeholder
+        </th>
+        <th>
+          Accepted at
+        </th>
       </tr>
     </thead>
 
@@ -28,6 +32,9 @@
           </td>
           <td>
             <%= link_to "Edit user", edit_user_path(user) %>
+          </td>
+          <td>
+            <%=user.invitation_accepted_at%>
           </td>
         </tr>
       <% end %>

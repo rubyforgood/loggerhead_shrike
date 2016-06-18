@@ -4,7 +4,11 @@ module ResourceHelper
   end
 
   def resource
-    @resource ||= User.new
+    if current_user
+      @resource = current_user
+    else
+      @resource ||= User.new
+    end
   end
 
   def devise_mapping
