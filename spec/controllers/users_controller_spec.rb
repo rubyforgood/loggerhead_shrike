@@ -2,37 +2,50 @@ require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
 
-  # describe "Limit access to user index" do
-  #   let(:admin) {
-  #     User.new(
-  #       email:                 "spacejame@gmail.com",
-  #       name:                  "Michael Jordan",
-  #       role:                  "admin",
-  #       password:              "password",
-  #       password_confirmation: "password"
-  #     )
-  #   }
-  #
-  #   let(:nonadmin) {
-  #     User.new(
-  #       email:                 "spacejame@gmail.com",
-  #       name:                  "Michael Jordan",
-  #       role:                  "scientist",
-  #       password:              "password",
-  #       password_confirmation: "password"
-  #     )
-  #   }
-  #
-  #   it "admin users have access to user index" do
-  #
-  #   end
-  #
-  #   it "non admin users do not have access to user index" do
-  #
-  #   end
-  #
-  # end
+  describe "Admin users should GET index access" do
+    let(:admin_params) {
+      {
+        email:                 "admin@gmail.com",
+        name:                  "Mr Admin",
+        role:                  "admin",
+        password:              "password",
+        password_confirmation: "password"
+      }
+    }
 
+    let(:admin) {
+      User.create!(admin_params)
+    }
 
+    before {controller.stub(:current_user) { admin}}
 
+    it "admin users have access to user index" do
+      get :index, {}
+      expect(response.status).to eq(200)
+    end
+  end
+
+  describe "NonAdmin users should not GET index access" do
+
+    let(:nonadmin_params) {
+      {
+        email:                 "nonadmin@gmail.com",
+        name:                  "Mr User",
+        role:                  "scientist",
+        password:              "password",
+        password_confirmation: "password"
+      }
+    }
+
+    let(:nonadmin) {
+      User.create!(nonadmin_params)
+    }
+
+    before {controller.stub(:current_user) { nonadmin}}
+
+    it "nonadmin users should not have access to user index" do
+      get :index, {}
+      expect(response.status).to eq(302)
+    end
+  end
 end

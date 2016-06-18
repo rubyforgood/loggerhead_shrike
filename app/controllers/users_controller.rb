@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  # before_action :check_admin, only: [:index]
+  load_and_authorize_resource
 
   def index
     @users = User.all
@@ -12,11 +12,5 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
     @resource = @user
-  end
-
-  private
-
-  def check_admin
-    current_user.is_admin?
   end
 end
