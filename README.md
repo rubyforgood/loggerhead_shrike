@@ -1,4 +1,4 @@
-![](https://codeship.com/projects/45a5ce80-16e5-0134-478c-3e8c5d75eee7/status?branch=master)
+[ ![Codeship Status for rubyforgood/loggerhead_shrike](https://codeship.com/projects/45a5ce80-16e5-0134-478c-3e8c5d75eee7/status?branch=master)](https://codeship.com/projects/158470)
 
 ## Logging the Loggerhead (Shrike)
 
@@ -51,3 +51,12 @@ When ready to submit a pull request, merge master and resolve conflicts:
 Push up changes and submit pull request in GitHub:
 
     git push
+
+Tests:
+
+    bundle exec rspec
+
+### Deployment
+
+Code is automatically deployed after it is merged into master with a passing
+test suite.
