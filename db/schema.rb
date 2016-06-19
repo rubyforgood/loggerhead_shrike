@@ -28,11 +28,15 @@ ActiveRecord::Schema.define(version: 20160618193605) do
   create_table "observations", force: :cascade do |t|
     t.datetime "sighted_at"
     t.string   "location"
-    t.decimal  "latitude",   precision: 10, scale: 6
+    t.decimal  "latitude",           precision: 10, scale: 6
     t.decimal  "longitude"
     t.integer  "num_bands"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "users", force: :cascade do |t|
