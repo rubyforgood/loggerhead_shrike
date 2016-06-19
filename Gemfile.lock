@@ -69,6 +69,7 @@ GEM
     ffi (1.9.10)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    gmaps4rails (2.1.2)
     i18n (0.7.0)
     jbuilder (2.5.0)
       activesupport (>= 3.0.0, < 5.1)
@@ -220,6 +221,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   devise
   devise_invitable
+  gmaps4rails
   jbuilder (~> 2.0)
   jquery-rails
   letter_opener

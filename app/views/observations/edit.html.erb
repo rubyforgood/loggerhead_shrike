@@ -1,6 +1,14 @@
-<h1>Editing Observation</h1>
+<div id='observations' class='jumbotron'>
+  <h1>Editing Observation</h1>
 
-<%= render 'form', observation: @observation %>
+  <div class="col-md-6 container" style='display:block'>
+    <%= render partial: 'map' %>
+  </div>
 
-<%= link_to 'Show', @observation %> |
-<%= link_to 'Back', observations_path %>
+  <div class="col-md-6 container">
+
+    <%= render 'form', observation: @observation %>
+
+    <button type="button" class="btn btn-primary"><%= link_to 'Show', @observation %></button><button type="button" class="btn btn-primary"><%= link_to 'Back', observations_path %></button>
+  </div>
+</div>

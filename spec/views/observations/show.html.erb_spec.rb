@@ -17,4 +17,9 @@ RSpec.describe "observations/show", type: :view do
     expect(rendered).to match(/9.99/)
     expect(rendered).to match(/2/)
   end
+
+  it 'creates a div due to google maps' do
+    render
+    assert_select "div.gm-style'"
+  end
 end

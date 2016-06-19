@@ -1,0 +1,44 @@
+<h2>Admin Panel</h2>
+
+
+
+<div>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>
+          placeholder
+        </th>
+        <th>
+          Accepted at
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td>
+            <%= link_to "#{user.name}", user_path(user) %>
+          </td>
+          <td>
+            <%= user.email %>
+          </td>
+          <td>
+            <%= user.role %>
+          </td>
+          <td>
+            <%= link_to "Edit user", edit_user_path(user) %>
+          </td>
+          <td>
+            <%=user.invitation_accepted_at%>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>
