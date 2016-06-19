@@ -1,11 +1,11 @@
-
 <div id='observations' class='jumbotron'>
   <p id="notice"><%= notice %></p>
 
   <h1>Nesting Data</h1>
-
   <div class="col-md-6 container" style='display:block'>
+
     <%= render partial: 'map' %>
+
   </div>
   <div class="col-md-6 container">
     <table text-align="center">
@@ -41,14 +41,10 @@
             <td>
               <button type="button" class="btn btn-danger"><%= link_to 'Destroy', observation, method: :delete, data: { confirm: 'Are you sure?' } %></button>
             </td>
-            
-            
-
           </tr>
         <% end %>
       </tbody>
     </table>
-
   </div>
 
   <%= link_to 'New Observation', new_observation_path %>
