@@ -1,50 +1,61 @@
-<p id="notice"><%= notice %></p>
+<div id='observations' class='jumbotron'>
+  <h1>Editing Observation</h1> 
 
-<p>
-  <strong>Sighted at:</strong>
-  <span class="sighted_at">
-    <%= @observation.sighted_at %>
-  </span>
-</p>
+  <div class="col-md-6 container" style='display:block'>
+    <%= render partial: 'map' %>
+  </div>
 
-<p>
-  <strong>Location:</strong>
-  <span class="location">
-    <%= @observation.location %>
-  </span>
-</p>
+  <div class="col-md-6 container">
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Latitude:</strong>
-  <span class="latitude">
-    <%= @observation.latitude %>
-  </span>
-</p>
+    <p>
+      <strong>Sighted at:</strong>
+      <span class="sighted_at">
+        <%= @observation.sighted_at %>
+      </span>
+    </p>
 
-<p>
-  <strong>Longitude:</strong>
-  <span class="longitude">
-    <%= @observation.longitude %>
-  </span>
-</p>
+    <p>
+      <strong>Location:</strong>
+      <span class="location">
+        <%= @observation.location %>
+      </span>
+    </p>
 
-<p>
-  <strong>Num bands:</strong>
-  <span class="num_bands">
-    <%= @observation.num_bands %>
-  </span>
-</p>
+    <p>
+      <strong>Latitude:</strong>
+      <span class="latitude">
+        <%= @observation.latitude %>
+      </span>
+    </p>
 
-<p>
-  <strong>Photo:</strong>
-  <span class="photo">
-    <% if @observation.photo && @observation.photo.url %>
-      <%= image_tag @observation.photo.url(:square) %>
-    <% else %>
-      No Photo
-    <% end %>
-  </span>
-</p>
+    <p>
+      <strong>Longitude:</strong>
+      <span class="longitude">
+        <%= @observation.longitude %>
+      </span>
+    </p>
 
-<%= link_to 'Edit', edit_observation_path(@observation) %> |
-<%= link_to 'Back', observations_path %>
+    <p>
+      <strong>Num bands:</strong>
+      <span class="num_bands">
+        <%= @observation.num_bands %>
+      </span>
+    </p>
+
+    <p>
+      <strong>Photo:</strong>
+      <span class="photo">
+        <% if @observation.photo && @observation.photo.url %>
+          <%= image_tag @observation.photo.url(:square) %>
+        <% else %>
+          No Photo
+        <% end %>
+      </span>
+    </p>
+
+    <button type="button" class="btn btn-primary"><%= link_to 'Edit', edit_observation_path(@observation) %></button>
+    <button type="button" class="btn btn-primary"><%= link_to 'Back', observations_path %></button>
+  </div>
+
+</div>

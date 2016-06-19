@@ -37,11 +37,22 @@
   </div>
 
   <div class="field">
-    <%= f.label :photo %>
+    <%= f.label :photo, 'New Photo' %>
     <%= f.file_field :photo %>
+    <p>
+      Existing Photo
+      <br/>
+      <span class="photo">
+        <% if @observation.photo && @observation.photo.url %>
+          <%= image_tag @observation.photo.url(:square) %>
+        <% else %>
+          No Photo
+        <% end %>
+      </span>
+    </p>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: 'btn btn-primary' %>
   </div>
 <% end %>

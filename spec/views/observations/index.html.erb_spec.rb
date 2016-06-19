@@ -28,4 +28,9 @@ RSpec.describe "observations/index", type: :view do
     assert_select "tr>td.latitude", :text => "10.99".to_s, :count => 1
     assert_select "tr>td.num_bands", :text => "1".to_s, :count => 1
   end
+
+  it 'creates a div due to google maps' do
+    render
+    assert_select "div.gm-style'"
+  end
 end
