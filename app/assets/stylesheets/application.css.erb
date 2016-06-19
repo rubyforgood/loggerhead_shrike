@@ -14,8 +14,8 @@
  *= require_self
  */
 
-body, html {
-  height: 100%;
+body {
+  margin-top: 33px;
 }
 
 .center {
@@ -28,18 +28,18 @@ h2 {
 }
 
 .about_image {
-  height: 350px;
-  width: 350px;
-  background-image: url(<%= asset_path("shrike_on_a_stick.jpg") %>);
+  height: 400px;
+  width: 400px;
+  background-image: url(<%= asset_path("shrike_light.jpg") %>);
   border-radius: 50%;
   border: none;
 }
 
 .meet_image {
-  height: 500px;
-  width: 500px;
+  height: 400px;
+  width: 400px;
   border-radius: 50%;
-  background-image: url(<%= asset_path("shrike_flying.jpg") %>);
+  background-image: url(<%= asset_path("shrike_branch.jpg") %>);
   background-position: 50% 20%;
 }
 
@@ -59,10 +59,11 @@ h2 {
 }
 
 .outreach_image {
-  height: 350px;
-  width: 350px;
+  height: 400px;
+  width: 400px;
   border-radius: 50%;
-  background-image: url(<%= asset_path("bird_watchers.jpg") %>);
+  background-image: url(<%= asset_path("bird_watcher.jpg") %>);
+  background-position: 30% 70%;
 }
 
 .jumbotron {

@@ -17,10 +17,12 @@ RSpec.describe UsersController, type: :controller do
       User.create!(admin_params)
     }
 
-    before {controller.stub(:current_user) { admin}}
+    before {
+      allow(controller).to receive(:current_user).and_return(admin)
+    }
 
     it "admin users have access to user index" do
-      get :index, {}
+      get :index, params: {}
       expect(response.status).to eq(200)
     end
   end
@@ -41,10 +43,12 @@ RSpec.describe UsersController, type: :controller do
       User.create!(nonadmin_params)
     }
 
-    before {controller.stub(:current_user) { nonadmin}}
+    before {
+      allow(controller).to receive(:current_user).and_return(nonadmin)
+    }
 
     it "nonadmin users should not have access to user index" do
-      get :index, {}
+      get :index, params: {}
       expect(response.status).to eq(302)
     end
   end
