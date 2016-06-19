@@ -39,17 +39,18 @@
   <div class="field">
     <%= f.label :photo, 'New Photo' %>
     <%= f.file_field :photo %>
-    <p>
-      Existing Photo
-      <br/>
-      <span class="photo">
-        <% if @observation.photo && @observation.photo.url %>
-          <%= image_tag @observation.photo.url(:square) %>
-        <% else %>
-          No Photo
-        <% end %>
-      </span>
-    </p>
+  </div>
+
+  <div class="field">
+    <label>Existing Photo</label>
+    <br/>
+    <span class="photo">
+      <% if @observation.photo.exists? %>
+        <%= image_tag @observation.photo.url(:square) %>
+      <% else %>
+        No Photo
+      <% end %>
+    </span>
   </div>
 
   <div class="actions">
