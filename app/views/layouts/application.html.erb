@@ -36,6 +36,7 @@
           <li><%= link_to "Contact Us", root_path(anchor: "contact-us") %></li>
           <%if can? :manage, :all %>
           <li><%= link_to "Admin Panel", guests_path %></li>
+          <li><%= link_to "Invite New User", new_user_invitation_path%></li>
           <%end%>
           <% if current_user %>
             <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
