@@ -43,6 +43,20 @@ RSpec.describe ObservationsController, type: :controller do
     }
   }
 
+  let (:admin_params) {
+    {
+      email:                 "admin@gmail.com",
+      name:                  "Mr Admin",
+      role:                  "admin",
+      password:              "password",
+      password_confirmation: "password"
+    }
+  }
+
+  let(:admin) {
+    User.create!(admin_params)
+  }
+
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # ObservationsController. Be sure to keep this updated too.
@@ -50,6 +64,8 @@ RSpec.describe ObservationsController, type: :controller do
 
   describe "GET #index" do
     it "assigns all observations as @observations" do
+      @request.env["devise.mapping"] = Devise.mappings[:user]
+      sign_in admin
       observation = Observation.create! valid_attributes
           get :index, params: {}, session: valid_session
           expect(assigns(:observations)).to eq(Observation.all)

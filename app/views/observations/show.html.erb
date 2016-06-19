@@ -45,7 +45,7 @@
 
     <p>
       <span class="photo">
-        <% if @observation.photo && @observation.photo.url %>
+        <% if @observation.photo.exists? %>
           <%= image_tag @observation.photo.url(:square) %>
         <% else %>
           No Photo

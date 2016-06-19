@@ -1,20 +1,21 @@
-<h2>Admin Panel</h2>
 
+<div class='extra-space'>
 
+</div>
+<ul class="nav nav-tabs">
+  <li role="presentation" class='col-md-4'><%=link_to 'Pending Approval', guests_path%></li>
 
+  <li role="presentation" class='col-md-4'><%=link_to 'All Users', users_path%></li>
+</ul>
+<div class='container'>
+<h2><%=@title%></h2>
 <div>
-  <table class='table'>
+  <table class='table extra-space cell-height'>
     <thead>
       <tr>
         <th>Name</th>
         <th>Email</th>
         <th>Role</th>
-        <th>
-          placeholder
-        </th>
-        <th>
-          Accepted at
-        </th>
       </tr>
     </thead>
 
@@ -31,14 +32,12 @@
             <%= user.role %>
           </td>
           <td>
-            <%= link_to "Edit user", edit_user_path(user) %>
-          </td>
-          <td>
-            <%=user.invitation_accepted_at%>
+            <%= link_to "Edit user", edit_user_path(user), class: 'btn btn-sm btn-default' %>
           </td>
         </tr>
       <% end %>
     </tbody>
   </table>
 
+</div>
 </div>
