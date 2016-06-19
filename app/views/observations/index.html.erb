@@ -1,37 +1,52 @@
-<p id="notice"><%= notice %></p>
+<div id='observations' class='jumbotron'>
+  <p id="notice"><%= notice %></p>
 
-<h1>Nesting Data</h1>
+  <h1>Nesting Data</h1>
+  <div class="col-md-6 container" style='display:block'>
 
-<table class="table" text-align="center">
-  <thead>
-    <tr>
-      <th>Sighted at Date</th>
-      <th>Sighted at Time (UTC)</th>
-      <th>Location</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
-      <th>Num bands</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <%= render partial: 'map' %>
 
-  <tbody>
-    <% @observations.each do |observation| %>
-      <tr>
-        <td class="sighted_at_date"><%= observation.sighted_at.to_date %></td>
-        <td class="sighted_at_time"><%= observation.sighted_at.strftime("%H:%M") %></td>
-        <td class="location"><%= observation.location %></td>
-        <td class="latitude"><%= observation.latitude %></td>
-        <td class="longitude"><%= observation.longitude %></td>
-        <td class="num_bands"><%= observation.num_bands %></td>
-        <!--<td><%#= link_to 'Show', observation %></td>-->
-        <!--<td><%#= link_to 'Edit', edit_observation_path(observation) %></td>-->
-        <!--<td><%#= link_to 'Destroy', observation, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  </div>
+  <div class="col-md-6 container">
+    <table text-align="center">
+      <thead>
+        <tr>
+          <th>Sighted at Date</th>
+          <th>Sighted at Time (UTC)</th>
+          <th>Location</th>
+          <th>Latitude</th>
+          <th>Longitude</th>
+          <th>Num bands</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-<br>
+      <tbody>
 
-<%= link_to 'New Observation', new_observation_path %>
+        <% @observations.each do |observation| %>
+          <tr>
+            <td class="sighted_at_date"><%= observation.sighted_at.to_date %></td>
+            <td class="sighted_at_time"><%= observation.sighted_at.strftime("%H:%M") %></td>
+            <td class="location"><%= observation.location %></td>
+            <td class="latitude"><%= observation.latitude %></td>
+            <td class="longitude"><%= observation.longitude %></td>
+            <td class="num_bands"><%= observation.num_bands %></td>
+  
+            <td>
+              <button type="button" class="btn btn-primary"><%= link_to 'Show', observation %></button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-warning"><%= link_to 'Edit', edit_observation_path(observation) %></button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-danger"><%= link_to 'Destroy', observation, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <%= link_to 'New Observation', new_observation_path %>
+
+</div>

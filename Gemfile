@@ -32,6 +32,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'rollbar'
 gem 'pry'
 
+gem 'gmaps4rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

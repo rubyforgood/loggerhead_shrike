@@ -5,11 +5,15 @@ class ObservationsController < ApplicationController
   # GET /observations.json
   def index
     @observations = Observation.all
+    gmaps_hash
   end
 
   # GET /observations/1
   # GET /observations/1.json
   def show
+    @observation = Observation.find(params[:id])
+    @observations = @observation
+    gmaps_hash
   end
 
   # GET /observations/new
@@ -19,6 +23,9 @@ class ObservationsController < ApplicationController
 
   # GET /observations/1/edit
   def edit
+    @observation = Observation.find(params[:id])
+    @observations = @observation
+    gmaps_hash
   end
 
   # POST /observations
@@ -59,6 +66,14 @@ class ObservationsController < ApplicationController
       format.html { redirect_to observations_url, notice: 'Observation was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def gmaps_hash
+    @hash = Gmaps4rails.build_markers(@observations) do |observation, marker|
+        marker.lat observation.latitude
+        marker.lng observation.longitude
+        marker.infowindow observation.location
+    end   
   end
 
   private
