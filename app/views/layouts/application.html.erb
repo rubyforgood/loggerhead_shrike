@@ -34,7 +34,7 @@
           <li><%= link_to "Conservation", root_path(anchor: "conservation") %></li>
           <li><%= link_to "Outreach", root_path(anchor: "outreach") %></li>
           <li><%= link_to "Contact Us", root_path(anchor: "contact-us") %></li>
-          <%if current_user.is_admin?%>
+          <%if can? :manage, :all %>
           <li><%= link_to "Admin Panel", guests_path %></li>
           <%end%>
           <% if current_user %>

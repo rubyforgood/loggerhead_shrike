@@ -3,10 +3,12 @@ class UsersController < ApplicationController
 
 
   def index
+    @title = 'All Users'
     @users = User.all
   end
 
   def guests
+    @title = 'Pending Approval'
     @users = User.where("role" => "guest")
     render 'index'
   end

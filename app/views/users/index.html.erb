@@ -1,13 +1,14 @@
+
 <div class='extra-space'>
 
 </div>
 <ul class="nav nav-tabs">
-  <li role="presentation"><%=link_to 'Pending Approval', guests_path%></li>
+  <li role="presentation" class='col-md-4'><%=link_to 'Pending Approval', guests_path%></li>
 
-  <li role="presentation"><%=link_to 'All Users', users_path%></li>
+  <li role="presentation" class='col-md-4'><%=link_to 'All Users', users_path%></li>
 </ul>
 <div class='container'>
-
+<h2><%=@title%></h2>
 <div>
   <table class='table extra-space cell-height'>
     <thead>
