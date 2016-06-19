@@ -12,7 +12,7 @@ RSpec.describe "Observations", type: :request do
     it "should create observation" do
       post "/observations", params: {observation: {sighted_at: DateTime.new(2016, 5, 10, 10, 30, 0, '-5'), location: "somewhere", latitude: 40.00, longitude: -78.00, num_bands: 1}}
       expect(response.code).to eql('302')
-      expect(response).to redirect_to(assigns(:observation)) 
+      expect(response).to redirect_to(assigns(:observation))
     end
   end
 
