@@ -33,7 +33,6 @@
           <li><%= link_to "Habitat", root_path(anchor: "habitat") %></li>
           <li><%= link_to "Conservation", root_path(anchor: "conservation") %></li>
           <li><%= link_to "Outreach", root_path(anchor: "outreach") %></li>
-          <li><%= link_to "Contact Us", root_path(anchor: "contact-us") %></li>
 
           <% if current_user %>
             <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
