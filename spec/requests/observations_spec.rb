@@ -4,7 +4,7 @@ RSpec.describe "Observations", type: :request do
   describe "GET /observations" do
     it "can get list" do
       get observations_path
-      expect(response).to have_http_status(200)
+      expect(response).to have_http_status(302)
     end
   end
 
@@ -17,4 +17,5 @@ RSpec.describe "Observations", type: :request do
   end
 
   #TODO: DELETE and PUT tests
+  #TODO: Test authorization
 end
