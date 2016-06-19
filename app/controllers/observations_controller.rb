@@ -1,10 +1,11 @@
 class ObservationsController < ApplicationController
   before_action :set_observation, only: [:show, :edit, :update, :destroy]
-
+  before_action :check_authorization
   # GET /observations
   # GET /observations.json
   def index
     @observations = Observation.all
+    authorize! :read, @observations
     gmaps_hash
   end
 
@@ -85,5 +86,9 @@ class ObservationsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def observation_params
       params.require(:observation).permit(:sighted_at, :location, :latitude, :longitude, :num_bands)
+    end
+
+    def check_authorization
+      can? :create, :observation
     end
 end
