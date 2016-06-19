@@ -43,6 +43,17 @@
       </span>
     </p>
 
+    <p>
+      <strong>Photo:</strong>
+      <span class="photo">
+        <% if @observation.photo.exists? %>
+          <%= image_tag @observation.photo.url(:square) %>
+        <% else %>
+          No Photo
+        <% end %>
+      </span>
+    </p>
+
     <button type="button" class="btn btn-primary"><%= link_to 'Edit', edit_observation_path(@observation) %></button>
     <button type="button" class="btn btn-primary"><%= link_to 'Back', observations_path %></button>
   </div>

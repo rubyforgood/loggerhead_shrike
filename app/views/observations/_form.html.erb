@@ -1,4 +1,4 @@
-<%= form_for(observation) do |f| %>
+<%= form_for(observation, multipart: true) do |f| %>
   <% if observation.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(observation.errors.count, "error") %> prohibited this observation from being saved:</h2>
@@ -36,7 +36,24 @@
     <%= f.number_field :num_bands %>
   </div>
 
+  <div class="field">
+    <%= f.label :photo, 'New Photo' %>
+    <%= f.file_field :photo %>
+  </div>
+
+  <div class="field">
+    <label>Existing Photo</label>
+    <br/>
+    <span class="photo">
+      <% if @observation.photo.exists? %>
+        <%= image_tag @observation.photo.url(:square) %>
+      <% else %>
+        No Photo
+      <% end %>
+    </span>
+  </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: 'btn btn-primary' %>
   </div>
 <% end %>
