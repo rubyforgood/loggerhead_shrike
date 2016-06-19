@@ -1,4 +1,5 @@
 class ObservationsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_observation, only: [:show, :edit, :update, :destroy]
   before_action :check_authorization
   # GET /observations
@@ -89,6 +90,6 @@ class ObservationsController < ApplicationController
     end
 
     def check_authorization
-      can? :create, :observation
+      can? :create, Observation
     end
 end

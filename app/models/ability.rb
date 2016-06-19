@@ -7,9 +7,9 @@ class Ability
       can :manage, :all
     elsif user.is_researcher?
       can :read, :all
-      can :create, :observation
+      can :create, Observation
     elsif user.is_scientist?
-      can :create, :observation
+      can :create, Observation
     end
   end
 end
