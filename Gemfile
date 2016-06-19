@@ -31,6 +31,7 @@ gem 'jbuilder', '~> 2.0'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'rollbar'
 gem 'pry'
+gem 'httparty'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -40,6 +41,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 3.5.0.beta4'
   gem 'rails-controller-testing', '~> 0.1.1'
+  gem 'dotenv-rails'
 end
 
 group :development do
