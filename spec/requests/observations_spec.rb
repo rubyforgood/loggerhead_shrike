@@ -1,10 +1,27 @@
 require 'rails_helper'
 
 RSpec.describe "Observations", type: :request do
+
+  let (:admin_params) {
+    {
+      email:                 "admin@gmail.com",
+      name:                  "Mr Admin",
+      role:                  "admin",
+      password:              "password",
+      password_confirmation: "password"
+    }
+  }
+
+  let(:admin) {
+    User.create!(admin_params)
+  }
+  before(:each) do
+  end
   describe "GET /observations" do
     it "can get list" do
+      sign_in admin  
       get observations_path
-      expect(response).to have_http_status(302)
+      expect(response).to have_http_status(200)
     end
   end
 
