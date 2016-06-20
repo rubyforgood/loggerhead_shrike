@@ -42,7 +42,7 @@ RSpec.describe ObservationsController, type: :controller do
     }
   end
 
-  let (:admin_params) do
+  let(:admin_params) do
     {
       email:                 'admin@gmail.com',
       name:                  'Mr Admin',
@@ -65,7 +65,7 @@ RSpec.describe ObservationsController, type: :controller do
     it 'assigns all observations as @observations' do
       @request.env['devise.mapping'] = Devise.mappings[:user]
       sign_in admin
-      observation = Observation.create! valid_attributes
+      Observation.create! valid_attributes
       get :index, params: {}, session: valid_session
       expect(assigns(:observations)).to eq(Observation.all)
     end

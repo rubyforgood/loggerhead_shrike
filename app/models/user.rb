@@ -5,15 +5,15 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   ROLES = %w(admin researcher scientist).freeze
 
-  def is_admin?
+  def admin?
     role == 'admin'
   end
 
-  def is_researcher?
+  def researcher?
     role == 'researcher'
   end
 
-  def is_scientist?
+  def scientist?
     role == 'scientist'
   end
 end

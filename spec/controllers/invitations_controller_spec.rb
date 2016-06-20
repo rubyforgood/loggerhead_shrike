@@ -12,7 +12,7 @@ RSpec.describe Users::InvitationsController, type: :controller do
   end
 
   context 'proper authorization' do
-    let (:admin_params) do
+    let(:admin_params) do
       {
         email:                 'admin@gmail.com',
         name:                  'Mr Admin',

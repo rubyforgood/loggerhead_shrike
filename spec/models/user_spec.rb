@@ -20,6 +20,6 @@ RSpec.describe User, type: :model do
       password:              'password',
       password_confirmation: 'password'
     )
-    expect(user.is_admin?).to be(true)
+    expect(user).to be_admin
   end
 end
