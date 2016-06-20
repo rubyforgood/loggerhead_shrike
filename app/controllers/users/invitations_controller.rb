@@ -3,6 +3,7 @@ class Users::InvitationsController < Devise::InvitationsController
   before_action :check_authorization
 
   private
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:invite, keys: [:role])
   end

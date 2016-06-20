@@ -1,4 +1,9 @@
 AllCops:
+  Exclude:
+    - 'db/schema.rb'
   DisplayCopNames: true
   ExtraDetails: true
   TargetRubyVersion: 2.3
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
