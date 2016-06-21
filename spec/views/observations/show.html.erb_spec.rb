@@ -1,16 +1,16 @@
 require 'rails_helper'
 
-RSpec.describe "observations/show", type: :view do
+RSpec.describe 'observations/show', type: :view do
   before(:each) do
     @observation = assign(:observation, Observation.create!(
-      :location => "Location",
-      :latitude => "9.99",
-      :longitude => "9.99",
-      :num_bands => 2
+                                          location: 'Location',
+                                          latitude: '9.99',
+                                          longitude: '9.99',
+                                          num_bands: 2
     ))
   end
 
-  it "renders attributes in <p>" do
+  it 'renders attributes in <p>' do
     render
     expect(rendered).to match(/Location/)
     expect(rendered).to match(/9.99/)
@@ -24,4 +24,3 @@ RSpec.describe "observations/show", type: :view do
     # assert_select "div.gm-style"
   end
 end
-

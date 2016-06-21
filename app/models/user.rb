@@ -3,17 +3,17 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  ROLES = ['admin', 'researcher', 'scientist']
+  ROLES = %w(admin researcher scientist).freeze
 
-  def is_admin?
-    self.role == "admin"
+  def admin?
+    role == 'admin'
   end
 
-  def is_researcher?
-    self.role == "researcher"
+  def researcher?
+    role == 'researcher'
   end
 
-  def is_scientist?
-    self.role == "scientist"
+  def scientist?
+    role == 'scientist'
   end
 end

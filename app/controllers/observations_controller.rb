@@ -70,20 +70,21 @@ class ObservationsController < ApplicationController
 
   def gmaps_hash
     @hash = Gmaps4rails.build_markers(@observations) do |observation, marker|
-        marker.lat observation.latitude
-        marker.lng observation.longitude
-        marker.infowindow observation.location
-    end   
+      marker.lat observation.latitude
+      marker.lng observation.longitude
+      marker.infowindow observation.location
+    end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_observation
-      @observation = Observation.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def observation_params
-      params.require(:observation).permit(:sighted_at, :location, :latitude, :longitude, :num_bands, :photo)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_observation
+    @observation = Observation.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def observation_params
+    params.require(:observation).permit(:sighted_at, :location, :latitude, :longitude, :num_bands, :photo)
+  end
 end

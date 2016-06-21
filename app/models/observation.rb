@@ -1,5 +1,5 @@
 class Observation < ApplicationRecord
-  validates_inclusion_of :num_bands, in: 0..2
+  validates :num_bands, inclusion: 0..2
 
   has_attached_file :photo, styles: {
     thumb: '100x100>',
@@ -7,5 +7,5 @@ class Observation < ApplicationRecord
     medium: '300x300>'
   }
 
-  validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
+  validates_attachment_content_type :photo, content_type: %r{\Aimage/.*\Z}
 end
