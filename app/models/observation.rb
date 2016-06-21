@@ -1,5 +1,5 @@
 class Observation < ApplicationRecord
-  validates_inclusion_of :num_bands, in: 0..2
+  validates :num_bands, inclusion: 0..2
 
   has_attached_file :photo, styles: {
     thumb: '100x100>',

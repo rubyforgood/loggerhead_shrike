@@ -7,5 +7,11 @@ AllCops:
   ExtraDetails: true
   TargetRubyVersion: 2.3
 
+Rails:
+  Enabled: true
+
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
