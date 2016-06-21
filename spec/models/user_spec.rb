@@ -4,7 +4,7 @@ RSpec.describe User, type: :model do
 
   it "can be valid" do
     user = User.new(
-      email:                 "spacejame@gmail.com",
+      email:                 "spacejam@gmail.com",
       name:                  "Michael Jordan",
       role:                  "admin",
       password:              "password",
@@ -15,7 +15,7 @@ RSpec.describe User, type: :model do
 
   it "can be an admin" do
     user = User.new(
-      email:                 "spacejame@gmail.com",
+      email:                 "spacejam@gmail.com",
       name:                  "Michael Jordan",
       role:                  "admin",
       password:              "password",

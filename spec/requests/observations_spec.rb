@@ -1,20 +1,19 @@
 require 'rails_helper'
 
-RSpec.describe "Observations", type: :request do
-  describe "GET /observations" do
-    it "can get list" do
-      get observations_path
-      expect(response).to have_http_status(200)
-    end
-  end
+RSpec.describe "Observations", type: :model do
 
-  describe "POST /observations" do
-    it "should create observation" do
-      post "/observations", params: {observation: {sighted_at: DateTime.new(2016, 5, 10, 10, 30, 0, '-5'), location: "somewhere", latitude: 40.00, longitude: -78.00, num_bands: 1}}
-      expect(response.code).to eql('302')
-      expect(response).to redirect_to(assigns(:observation))
-    end
-  end
+  let(:valid_attributes) {
+    {
+      sighted_at:DateTime.new(2016, 5, 10, 10, 30, 0, '-5'),
+      location: 'Near my moms house',
+      latitude: 38.918167,
+      longitude: -78.194445,
+      num_bands: 1
+    }
+  }
 
-  # TODO: DELETE and PUT tests
+  it "can be valid" do
+    observation = Observation.new valid_attributes
+    expect(observation).to be_valid
+  end
 end

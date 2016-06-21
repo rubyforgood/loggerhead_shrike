@@ -1,6 +1,6 @@
 class ObservationsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_observation, only: [:show, :edit, :update, :destroy]
-
   # GET /observations
   # GET /observations.json
   def index
@@ -73,7 +73,7 @@ class ObservationsController < ApplicationController
         marker.lat observation.latitude
         marker.lng observation.longitude
         marker.infowindow observation.location
-    end   
+    end
   end
 
   private

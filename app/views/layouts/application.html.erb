@@ -40,6 +40,7 @@
       <div class="navbar-header">
         <%= link_to "LSCE", root_path(anchor: "tophome"), class: "navbar-brand anchor-link", data: {target: 'tophome'} %>
       </div>
+
       <div class="navbar-collapse collapse navbar-responsive-collapse">
         <ul class="nav navbar-nav">
           <li>
@@ -72,7 +73,13 @@
               <div class="ripple-container"></div>
             <% end %>
           </li>
-      
+
+          <% if can? :read, Observation %>
+              <li><%= link_to("Observations", observations_path) %></li>
+          <% elsif can? :create, Observation %>
+              <li><%= link_to("Add Observation", new_observation_path) %></li>
+          <%end%>
+
           <%if can? :manage, :all %>
           <li><%= link_to "Admin Panel", guests_path %></li>
           <li><%= link_to "Invite New User", new_user_invitation_path%></li>
@@ -82,12 +89,12 @@
           <% else %>
             <li><%= link_to "Sign In", new_user_session_path %></li>
           <% end %>
-          </ul>
+        </ul>
       </div>
-    </nav>
+      </nav>
 
-    <%= yield %>
+      <%= yield %>
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-  </body>
-</html>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    </body>
+  </html>
