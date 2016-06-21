@@ -15,5 +15,7 @@
 //= require turbolinks
 //= require underscore
 //= require gmaps/google
-//= require smooth-scroll
+//= require material.min.js
+//= require ripples.min.js
+//= require jquery.scrollTo.min.js
 //= require_tree .
