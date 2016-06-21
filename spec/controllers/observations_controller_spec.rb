@@ -124,24 +124,43 @@ RSpec.describe ObservationsController, type: :controller do
       end
     end
     context "no account" do
-      it "allows access" do
+      it "denies access" do
         get :new
         expect(response).not_to render_template(:new)
         expect(response).to redirect_to(root_url)
-        
+
         # TODO: figure out why the observation is still set, even when
         # the user does not have permission. By my reasoning, this
         # assertion should FAIL!
+        # This means tests are passing when they probably shouldn't!
         expect(assigns(:observation)).to be_a_new(Observation)
       end
     end
   end
 
   describe "GET #edit" do
-    it "assigns the requested observation as @observation" do
-      observation = Observation.create! valid_attributes
-      get :edit, params: {id: observation.to_param}, session: valid_session
-      expect(assigns(:observation)).to eq(observation)
+    context "researcher account" do
+      it "assigns the requested observation as @observation" do
+        sign_in researcher
+        observation = Observation.create! valid_attributes
+        get :edit, params: {id: observation.to_param}, session: valid_session
+        expect(assigns(:observation)).to eq(observation)
+      end
+
+      it "renders the template" do
+        sign_in researcher
+        observation = Observation.create! valid_attributes
+        get :edit, params: {id: observation.to_param}, session: valid_session
+        expect(response).to render_template(:edit)
+      end
+    end
+
+    context "scientist account" do
+      it "denies access" do
+        observation = Observation.create! valid_attributes
+        get :edit, params: {id: observation.to_param}, session: valid_session
+        expect(response).not_to render_template(:edit)
+      end
     end
   end
 
@@ -211,11 +230,7 @@ RSpec.describe ObservationsController, type: :controller do
         observation = Observation.create! valid_attributes
         put :update, params: {id: observation.to_param, observation: new_attributes}, session: valid_session
         observation.reload
-        expect(observation.location).to eql('Near my dads house')
-        expect(observation.sighted_at.utc.to_i).to eql(DateTime.new(2016, 5, 10, 10, 30, 0, '-5').to_i)
-        expect(observation.latitude).to eql(38.918167)
-        expect(observation.longitude).to eql(-78.194445)
-        expect(observation.num_bands).to eql(1)
+        expect(observation).to have_attributes(new_attributes)
       end
 
       it "assigns the requested observation as @observation" do

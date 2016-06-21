@@ -1,38 +1,19 @@
 require 'rails_helper'
 
-RSpec.describe "Observations", type: :request do
+RSpec.describe "Observations", type: :model do
 
-  let (:admin_params) {
+  let(:valid_attributes) {
     {
-      email:                 "admin@gmail.com",
-      name:                  "Mr Admin",
-      role:                  "admin",
-      password:              "password",
-      password_confirmation: "password"
+      sighted_at:DateTime.new(2016, 5, 10, 10, 30, 0, '-5'),
+      location: 'Near my moms house',
+      latitude: 38.918167,
+      longitude: -78.194445,
+      num_bands: 1
     }
   }
 
-  let(:admin) {
-    User.create!(admin_params)
-  }
-  before(:each) do
+  it "can be valid" do
+    observation = Observation.new valid_attributes
+    expect(observation).to be_valid
   end
-  describe "GET /observations" do
-    it "can get list" do
-      sign_in admin  
-      get observations_path
-      expect(response).to have_http_status(200)
-    end
-  end
-
-  describe "POST /observations" do
-    it "should create observation" do
-      post "/observations", params: {observation: {sighted_at: DateTime.new(2016, 5, 10, 10, 30, 0, '-5'), location: "somewhere", latitude: 40.00, longitude: -78.00, num_bands: 1}}
-      expect(response.code).to eql('302')
-      expect(response).to redirect_to(assigns(:observation))
-    end
-  end
-
-  #TODO: DELETE and PUT tests
-  #TODO: Test authorization
 end
