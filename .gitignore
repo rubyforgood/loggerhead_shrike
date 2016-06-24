@@ -19,3 +19,6 @@
 
 # Ignore gemset
 .ruby-gemset
+
+# mac prefs
+.DS_Store

@@ -16,4 +16,11 @@ class User < ApplicationRecord
   def is_scientist?
     self.role == "scientist"
   end
+
+  def is_pending?
+    self.role == 'guest'
+  end
+
+  scope :count_of_role, -> (role) { User.where(role: role).count }
+  scope :most_recent, -> (count) { User.order(created_at: :desc).limit(count) }
 end

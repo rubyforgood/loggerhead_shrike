@@ -1,0 +1,71 @@
+<div class="sidebar">
+
+  <!-- Close button (mobile devices) -->
+  <div class="sidebar__close">
+    <img src="assets/img/close.svg" alt="Close sidebar">
+  </div>
+  
+  <!-- Sidebar user -->
+  <div class="sidebar__user">
+
+    <!-- Sidebar user avatar -->
+    <div class="sidebar-user__avatar">
+      <%= image_tag 'logo.png', style:"" %>
+    </div>
+
+    <!-- Sidebar user info -->
+    <a class="sidebar-user__info">
+      <h4>
+        <%= current_user.name %>
+      </h4>
+      <p><%= current_user.role.titleize %> <i class="fa fa-caret-down"></i></p>
+    </a>
+
+  </div>
+
+  <!-- Sidebar user nav -->
+  <nav class="sidebar-user__nav">
+    <ul class="sidebar__nav">
+      <li>
+        <%= link_to user_path current_user do %>
+          <i class="fa fa-user"></i> Profile
+        <% end %>
+      </li>
+      <li>
+        <%= link_to edit_user_path current_user do %>
+          <i class="fa fa-edit"></i> Edit profile
+        <% end %>
+      </li>
+      <li>
+        <%= link_to destroy_user_session_path, method: :delete do %>
+          <i class="fa fa-sign-out"></i> Sign out
+        <% end %>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Sidebar nav -->
+  <nav>
+    <ul class="sidebar__nav">
+      
+      <li>
+        <%= link_to dashboard_index_path do %>
+          <i class="fa fa-th-large"></i> Dashboard
+        <% end %>
+      </li>
+
+      <% if can? :read, Observation %>
+        <li><%= link_to("Observations", observations_path) %></li>
+      <% elsif can? :create, Observation %>
+        <li><%= link_to("Add Observation", new_observation_path) %></li>
+      <%end%>
+
+      <%if can? :manage, :all %>
+        <li><%= link_to "Admin Panel", guests_path %></li>
+        <li><%= link_to "Invite New User", new_user_invitation_path%></li>
+      <%end%>
+
+    </ul>
+  </nav>
+
+</div>

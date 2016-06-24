@@ -8,4 +8,6 @@ class Observation < ApplicationRecord
   }
 
   validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
+
+  scope :most_recent, -> (count) { Observation.order(created_at: :desc).limit(count) }
 end
