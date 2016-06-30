@@ -2,7 +2,7 @@
 
   <!-- Close button (mobile devices) -->
   <div class="sidebar__close">
-    <img src="assets/img/close.svg" alt="Close sidebar">
+    <%= image_tag 'close.svg', alt:"Close sidebar" %>
   </div>
   
   <!-- Sidebar user -->
@@ -55,14 +55,30 @@
       </li>
 
       <% if can? :read, Observation %>
-        <li><%= link_to("Observations", observations_path) %></li>
+        <li>
+          <%= link_to observations_path do %>
+            <i class="fa fa-binoculars" aria-hidden="true"></i> Observations
+          <% end %>
+        </li>
       <% elsif can? :create, Observation %>
-        <li><%= link_to("Add Observation", new_observation_path) %></li>
+        <li>
+          <%= link_to, new_observation_path do %>
+            <i class="fa fa-binoculars" aria-hidden="true"></i> Add Observations
+          <% end %>
+        </li>
       <%end%>
 
       <%if can? :manage, :all %>
-        <li><%= link_to "Admin Panel", guests_path %></li>
-        <li><%= link_to "Invite New User", new_user_invitation_path%></li>
+        <li>
+          <%= link_to guests_path do %>
+            <i class="fa fa-tachometer" aria-hidden="true"></i> Admin Panel
+          <% end %>
+        </li>
+        <li>
+          <%= link_to new_user_invitation_path do %>
+            <i class="fa fa-user-plus" aria-hidden="true"></i> Invite New User
+          <% end %>
+        </li>
       <%end%>
 
     </ul>

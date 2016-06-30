@@ -11,7 +11,7 @@
   <div class="col-xs-12 col-sm-3">
 
     <div class="dashboard-stats__item bg-orange">
-      <i class="fa fa-comments"></i>
+      <i class="fa fa-binoculars"></i>
       <h3 class="dashboard-stats__title">
         <span class="count-to" data-from="0" data-to="<%= Observation.count %>">0</span> 
         <small>Observations</small>
@@ -22,7 +22,7 @@
   <div class="col-xs-12 col-sm-3">
 
     <div class="dashboard-stats__item bg-pink">
-      <i class="fa fa-globe"></i>
+      <i class="fa fa-hourglass"></i>
       <h3 class="dashboard-stats__title">
         <span class="count-to" data-from="0" data-to="<%= User.count_of_role 'guest' %>">0</span> 
         <small>Pending Approval</small>
@@ -33,7 +33,7 @@
   <div class="col-xs-12 col-sm-3">
 
     <div class="dashboard-stats__item bg-accent">
-      <i class="fa fa-pie-chart"></i>
+      <i class="fa fa-university"></i>
       <h3 class="dashboard-stats__title">
         <span class="count-to" data-from="0" data-to="<%= User.count_of_role 'scientist' %>">0</span> 
         <small>Citizen Scientists</small>
@@ -44,7 +44,7 @@
   <div class="col-xs-12 col-sm-3">
 
     <div class="dashboard-stats__item bg-teal">
-      <i class="fa fa-eur"></i>
+      <i class="fa fa-line-chart"></i>
       <h3 class="dashboard-stats__title">
         <span class="count-to" data-from="0" data-to="<%= User.count_of_role 'researcher' %>">0</span> 
         <small>Researchers</small>
@@ -52,10 +52,6 @@
     </div>
     
   </div>
-</div> <!-- / .row -->
-
-<div class="row">
-  <%= render 'graphs' %>
 </div> <!-- / .row -->
 
 <div class="row">

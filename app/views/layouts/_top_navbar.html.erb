@@ -10,9 +10,9 @@
           </a>
 
 
-          <a href="#" class="btn btn-primary navbar-btn navbar-right">
+          <%= link_to destroy_user_session_path, class: "btn btn-primary navbar-btn navbar-right", method: :delete do %>        
             Sign Out
-          </a>
+          <% end %>
 
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->

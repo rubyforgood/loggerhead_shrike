@@ -11,6 +11,7 @@
  * It is generally better to create a new file per style scope.
  *
  *= require bootstrap.min
+ *= require font-awesome
  *= require datatables/datatables.min
  *= require perfect-scrollbar/perfect-scrollbar.min
  *= require smart-alerts/jquery.smartAlerts
