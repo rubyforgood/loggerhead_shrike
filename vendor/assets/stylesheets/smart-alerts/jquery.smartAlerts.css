@@ -1,0 +1,17 @@
+/**
+ * Smart Alerts plugin by Simpleqode.com
+ */
+
+.smart-alerts__container {
+	position: fixed;
+	top: 20px; left: 20px; right: 20px; bottom: auto;
+	z-index: 1000;
+}
+@media(min-width: 768px) {
+
+	.smart-alerts__container {
+		top: auto; left: auto; right: 20px; bottom: 20px;
+		width: 100%;
+		max-width: 300px;
+	}
+}

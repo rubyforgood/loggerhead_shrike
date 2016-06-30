@@ -1,0 +1,95 @@
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h2 {
+  text-align: center;
+}
+
+.about_image {
+  height: 400px;
+  width: 400px;
+  background-position: 50% 10%;
+  background-image: image-url("shrike_light.jpg");
+  border-radius: 50%;
+  border: none;
+}
+
+.meet_image {
+  height: 400px;
+  width: 400px;
+  border-radius: 50%;
+  background-image: image-url("shrike_flying.jpg");
+  background-position: 30% 30%;
+}
+
+.habitat_image {
+  height: 400px;
+  width: 400px;
+  border-radius: 50%;
+  background-image: image-url("alvar_habitat.jpg");
+}
+
+.conservation_image {
+  height: 400px;
+  width: 400px;
+  border-radius: 50%;
+  background-position: 0% 25%;
+  background-image: image-url("loggerhead_shrike_grumpy.jpg");
+}
+
+.outreach_image {
+  height: 400px;
+  width: 400px;
+  border-radius: 50%;
+  background-image: image-url("bird_watcher.jpg");
+  background-position: 30% 70%;
+}
+
+.jumbotron {
+  background-image: image-url("landscape.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 300px;
+}
+
+.jumbotron h1 {
+  color: #efefef;
+  font-family: times;
+  font-size: 38px;
+  margin-top: 3em;
+}
+
+.notice, .alert {
+  display: inline;
+}
+
+#observations {
+  min-height: 800px;
+}
+
+.nesting {
+  min-height:1000px
+}
+
+#map {
+  min-height: 500px;
+}
+
+#about, #meet, #habitat, #conservation, #outreach {
+  /*min-height: 800px;*/
+  padding-top: 50px;
+}
+
+.btn a{
+  color: white;
+}
+
+.extra-space {
+  margin-top: 50px;
+}
+
+.row {
+  margin-bottom: 20px;
+}

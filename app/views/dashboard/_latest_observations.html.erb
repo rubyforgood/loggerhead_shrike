@@ -1,0 +1,35 @@
+<div class="col-xs-12 col-sm-6">
+  
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        Latest Observations
+      </h4>
+    </div>
+    <div class="panel-body">
+      <div class="dashboard__comments">
+        <% observations.each do |observation| %>
+          <div class="dashboard-comments__item">
+            <div class="dashboard-comments__body">
+              <h5 class="dashboard-comments__sender">
+                <%= link_to observation_path(observation) do %>
+                  Observation #<%= observation.id %>
+                <% end %>
+                <small>Sighted <%= time_ago_in_words observation.sighted_at %> ago</small>
+              </h5>
+              <div class="dashboard-comments__content">
+                <p>
+                  Location: <%= observation.latitude %>, <%= observation.longitude %>
+                </p>
+                <p>
+                  Number of Bands: <%= observation.num_bands %>
+                </p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+</div>

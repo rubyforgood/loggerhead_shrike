@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Loggerhead Shrike Conservation Effort</title>
+
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body class="guest-layout-body">
+    <% if notice %>
+      <p class="notice"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="navbar-header">
+        <%= link_to root_path(anchor: "tophome"), class: "navbar-brand anchor-link", data: {target: 'tophome'} do %>
+          LSCE
+        <% end %>
+      </div>
+
+      <div class="navbar-collapse collapse navbar-responsive-collapse">
+        <ul class="nav navbar-nav">
+          <li>
+            <%= link_to root_path(anchor: "about"), id: 'about_link', class: 'anchor-link', data: {target: 'about'} do %>
+              About
+              <div class="ripple-container"></div>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to root_path(anchor: "meet"), id: 'meet_link', class: 'anchor-link', data: {target: 'meet'} do %>
+              Meet the Birds
+              <div class="ripple-container"></div>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to root_path(anchor: "habitat"), id: 'habitat_link', class: 'anchor-link', data: {target: 'habitat'} do %>
+              Habitat
+              <div class="ripple-container"></div>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to root_path(anchor: "conservation"), id: 'conservation_link', class: 'anchor-link', data: {target: 'conservation'} do %>
+              Conservation
+              <div class="ripple-container"></div>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to root_path(anchor: "outreach"), id: 'outreach_link', class: 'anchor-link', data: {target: 'outreach'} do %>
+              Outreach
+              <div class="ripple-container"></div>
+            <% end %>
+          </li>
+
+          <% if can? :read, Observation %>
+              <li><%= link_to("Observations", observations_path) %></li>
+          <% elsif can? :create, Observation %>
+              <li><%= link_to("Add Observation", new_observation_path) %></li>
+          <%end%>
+
+          <%if can? :manage, :all %>
+          <li><%= link_to "Admin Panel", guests_path %></li>
+          <li><%= link_to "Invite New User", new_user_invitation_path%></li>
+          <%end%>
+          <% if current_user %>
+            <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to "Sign In", new_user_session_path %></li>
+          <% end %>
+        </ul>
+      </div>
+      </nav>
+
+      <%= yield %>
+
+    </body>
+  </html>

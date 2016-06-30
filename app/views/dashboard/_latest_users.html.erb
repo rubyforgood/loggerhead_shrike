@@ -1,0 +1,22 @@
+<div class="col-xs-12 col-sm-6">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        Latest Users
+      </h4>
+    </div>
+    <div class="panel-body">
+      <div class="dashboard__feed">
+        <% users.each do |user| %>
+          <div class="dashboard-feed__item">
+            <span class="label <% if user.is_pending? %>label-warning<% else %>label-success<% end %>">
+              <i class="fa fa-user"></i>
+            </span>
+            <%= user.name %>
+            <small><%= time_ago_in_words user.created_at %> ago</small>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -6,4 +6,5 @@ Rails.application.routes.draw do
     resources :users
     get 'guests', to: 'users#guests'
   end
+  get 'dashboard/index'
 end
