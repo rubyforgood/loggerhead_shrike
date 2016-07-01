@@ -36,6 +36,7 @@ gem 'paperclip', :git=> 'https://github.com/thoughtbot/paperclip', :ref => '523b
 gem 'dotenv-rails'
 gem 'gmaps4rails'
 gem 'font-awesome-rails'
+gem 'paranoia', :github => 'rubysherpas/paranoia', :branch => 'rails4'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
