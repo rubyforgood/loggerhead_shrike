@@ -36,8 +36,18 @@ RSpec.describe User, type: :model do
 
     it "can be destroyed" do
       a_user.destroy
-      expect(User.without_deleted).to be_empty
-      expect(User.only_deleted).not_to be_empty
+      expect(a_user.paranoia_destroyed?).to eq(true)
+    end
+
+    it "can be restored" do
+      a_user.restore
+      expect(a_user.paranoia_destroyed?).to eq(false)
+    end
+
+    it "can be REALLY destroyed" do
+      a_user.really_destroy!
+      expect(a_user.destroyed?).to eq(true)
+
     end
 
   end
