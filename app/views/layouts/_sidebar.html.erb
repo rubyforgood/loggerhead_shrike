@@ -4,7 +4,7 @@
   <div class="sidebar__close">
     <%= image_tag 'close.svg', alt:"Close sidebar" %>
   </div>
-  
+
   <!-- Sidebar user -->
   <div class="sidebar__user">
 
@@ -47,7 +47,11 @@
   <!-- Sidebar nav -->
   <nav>
     <ul class="sidebar__nav">
-      
+      <li>
+        <%= link_to root_path do %>
+          <i class="fa fa-th-large"></i> Home
+        <% end %>
+      </li>
       <li>
         <%= link_to dashboard_index_path do %>
           <i class="fa fa-th-large"></i> Dashboard

@@ -16,15 +16,6 @@ ActiveRecord::Schema.define(version: 20160618215216) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "images", force: :cascade do |t|
-    t.text     "image_data"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.integer  "user_id"
-    t.integer  "observation_id"
-    t.index ["observation_id"], name: "index_images_on_observation_id", using: :btree
-  end
-
   create_table "observations", force: :cascade do |t|
     t.datetime "sighted_at"
     t.string   "location"
@@ -70,5 +61,4 @@ ActiveRecord::Schema.define(version: 20160618215216) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "images", "observations"
 end
